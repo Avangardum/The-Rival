@@ -9,6 +9,6 @@ public class Location1Controller : MonoBehaviour
     void Start()
     {
         MonologueController.Instance.ShowMonologue(_introMonologue);
-        RivalStrategyController.Instance.Strategy = new IncrementLogRivalStrategy();
+        RivalStrategyController.Instance.Strategy = new RivalStrategy1_1_1();
     }
 }

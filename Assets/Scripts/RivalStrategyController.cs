@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class RivalStrategyController : SingletonMonoBehaviour<RivalStrategyController>
 {
-    public IRivalStrategy Strategy { get; set; }
+    public IRivalStrategy Strategy
+    {
+        get => _strategy;
+        set
+        {
+            _strategy = value;
+            _strategy.Initialize(this);
+        }
+    }
+
+    private IRivalStrategy _strategy;
 
     private void Update()
     {

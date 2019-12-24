@@ -9,7 +9,9 @@ public class HealthController : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
 
-    public event Action<int> HealthChanged;
+    public delegate void HealthChangedDelegate(int currentHealth, int maxHealth);
+
+    public event HealthChangedDelegate HealthChanged;
     public event Action Death;
 
     public void ChangeHealth(int value)
@@ -19,8 +21,13 @@ public class HealthController : MonoBehaviour
             _health = MaxHealth;
         if (_health <= 0)
             _health = 0;
-        HealthChanged?.Invoke(_health);
+        HealthChanged?.Invoke(_health, MaxHealth);
         if (_health == 0)
             Death?.Invoke();
+    }
+
+    private void Start()
+    {
+        HealthChanged?.Invoke(_health, MaxHealth);
     }
 }

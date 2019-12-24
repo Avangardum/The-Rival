@@ -19,6 +19,6 @@ public class PlayerMovement : MonoBehaviour
         if (PauseController.Instance.IsPaused)
             return;
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        _rigidbody2d.velocity = input * _maxSpeed;
+        _rigidbody2d.velocity = input.normalized * _maxSpeed;
     }
 }

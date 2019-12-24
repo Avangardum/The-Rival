@@ -9,4 +9,9 @@ public class IncrementLogRivalStrategy : IRivalStrategy
         Debug.Log(counter);
         counter++;
     }
+
+    public void Initialize(MonoBehaviour monoBehaviour)
+    {
+
+    }
 }
