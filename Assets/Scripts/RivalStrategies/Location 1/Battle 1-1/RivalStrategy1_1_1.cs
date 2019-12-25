@@ -1,28 +1,25 @@
 ﻿using UnityEngine;
 
-public class RivalStrategy1_1_1 : IRivalStrategy
+public class RivalStrategy1_1_1 : RivalStrategyTemplate1
 {
-    private GameObject _bulletPrefab = PrefabStorage.Instance.GetPrefab("Bullet");
-    private GameObject _player;
-    private MonoBehaviour _monoBehaviour;
-    private ShootingController _shootingController;
     private float _bulletSpeed = 10;
     private float _shootingCooldown = 1;
     private float _angularDeviation = 18;
     private float _currentShootingCooldown = 1;
+    private float _nextPhaseHealthPercentage = 0.6f;
+    private int _selfDamagePerBullet = 1;
 
-    public void FrameAction()
+    public override void Initialize(MonoBehaviour monoBehaviour)
+    {
+        base.Initialize(monoBehaviour);
+        _healthController.HealthChanged += NextPhaseCheck;
+    }
+
+    public override void FrameAction()
     {
         if (_currentShootingCooldown == 0)
             Shoot();
         DecreaseCooldowns();
-    }
-
-    public void Initialize(MonoBehaviour monoBehaviour)
-    {
-        _monoBehaviour = monoBehaviour;
-        _shootingController = _monoBehaviour.GetComponent<ShootingController>();
-        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void DecreaseCooldowns()
@@ -38,5 +35,20 @@ public class RivalStrategy1_1_1 : IRivalStrategy
         _shootingController.Shoot(_bulletPrefab, _bulletSpeed, _player.transform, _angularDeviation);
         _shootingController.Shoot(_bulletPrefab, _bulletSpeed, _player.transform, - _angularDeviation);
         _currentShootingCooldown = _shootingCooldown;
+        _healthController.ChangeHealth(-_selfDamagePerBullet * 3);
+    }
+
+    private void NextPhase()
+    {
+        _healthController.HealthChanged -= NextPhaseCheck;
+        RivalStrategyController.Instance.Strategy = new RivalStrategy1_1_2();
+        Location1Controller.Instance.ShowPhase1EndMonologue();
+    }
+
+    private void NextPhaseCheck(int currentHealth, int maxHealth)
+    {
+        float healthPercentage = (float)currentHealth / maxHealth;
+        if (healthPercentage <= _nextPhaseHealthPercentage)
+            NextPhase();
     }
 }

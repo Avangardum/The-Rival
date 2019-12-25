@@ -418,6 +418,13 @@ MonoBehaviour:
   - "\u041D\u0430\u043A\u043E\u043D\u0435\u0446 - \u0442\u043E \u044F \u043D\u0430\u0448\u0451\u043B
     \u0442\u0435\u0431\u044F"
   - "\u0422\u0435\u043F\u0435\u0440\u044C \u044F \u0442\u0435\u0431\u044F \u0443\u0431\u044C\u044E"
+  _phase1EndMonologue:
+  - "\u041F\u0440\u043E\u043A\u043B\u044F\u0442\u044C\u0435! \u042F \u043D\u0430\u043D\u043E\u0448\u0443
+    \u0443\u0440\u043E\u043D \u0441\u0430\u043C \u0441\u0435\u0431\u0435"
+  - "\u042F \u0441\u043C\u043E\u0442\u0440\u044E, \u0442\u044B \u043B\u043E\u0432\u043A\u043E
+    \u0443\u043E\u0432\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0448\u044C\u0441\u044F"
+  - "\u0410 \u0441\u043C\u043E\u0436\u0435\u0448\u044C \u043B\u0438 \u0442\u044B \u043E\u0442
+    \u044D\u0442\u043E\u0433\u043E \u0443\u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F?"
 --- !u!114 &601112229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1378,19 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095586986864572313, guid: 8da416ee753d4e340b406ebba8cd103b,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054768334, guid: 8da416ee753d4e340b406ebba8cd103b, type: 3}
+      propertyPath: _health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054768334, guid: 8da416ee753d4e340b406ebba8cd103b, type: 3}
+      propertyPath: _maxHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da416ee753d4e340b406ebba8cd103b, type: 3}

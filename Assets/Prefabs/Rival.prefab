@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1054768335}
   - component: {fileID: 1054768333}
   - component: {fileID: 1054768334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rival
   m_TagString: Rival
   m_Icon: {fileID: 0}

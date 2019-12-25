@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public class PauseController : SingletonMonoBehaviour<PauseController>
 {
@@ -9,9 +10,15 @@ public class PauseController : SingletonMonoBehaviour<PauseController>
         {
             _isPaused = value;
             if (_isPaused)
+            {
                 Pause?.Invoke();
+                Time.timeScale = 0;
+            }
             else
+            {
                 Unpause?.Invoke();
+                Time.timeScale = 1;
+            }
         }
     }
 
