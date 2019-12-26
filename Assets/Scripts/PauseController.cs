@@ -11,12 +11,12 @@ public class PauseController : SingletonMonoBehaviour<PauseController>
             _isPaused = value;
             if (_isPaused)
             {
-                Pause?.Invoke();
+                OnPause?.Invoke();
                 Time.timeScale = 0;
             }
             else
             {
-                Unpause?.Invoke();
+                OnUnpause?.Invoke();
                 Time.timeScale = 1;
             }
         }
@@ -24,6 +24,16 @@ public class PauseController : SingletonMonoBehaviour<PauseController>
 
     private bool _isPaused;
 
-    public event Action Pause;
-    public event Action Unpause;
+    public event Action OnPause;
+    public event Action OnUnpause;
+
+    public void Pause() => IsPaused = true;
+
+    public void Unpause() => IsPaused = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>().Death += Pause;
+    }
 }

@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        HealthController otherHealthController = collision.gameObject.GetComponent<HealthController>();
+        otherHealthController?.ChangeHealth(-_damage);
         Destroy(gameObject);
     }
 

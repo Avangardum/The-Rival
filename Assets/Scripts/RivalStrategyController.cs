@@ -20,6 +20,6 @@ public class RivalStrategyController : SingletonMonoBehaviour<RivalStrategyContr
     {
         if (PauseController.Instance.IsPaused)
             return;
-        Strategy.FrameAction();
+        Strategy?.FrameAction();
     }
 }
