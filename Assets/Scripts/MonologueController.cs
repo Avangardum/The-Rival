@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class MonologueController : SingletonMonoBehaviour<MonologueController>
 {
+    public bool IsMonologueActive { get; private set; }
+
     [SerializeField] private GameObject _monologueWindow;
 
     private Text _monologueWindowText;
@@ -22,6 +24,7 @@ public class MonologueController : SingletonMonoBehaviour<MonologueController>
 
     private IEnumerator ShowMonologueCoroutine(string[] monologueParts)
     {
+        IsMonologueActive = true;
         PauseController.Instance.IsPaused = true;
         _monologueWindow.SetActive(true);
         _shouldGonext = false;
@@ -34,6 +37,7 @@ public class MonologueController : SingletonMonoBehaviour<MonologueController>
         }
         _monologueWindow.SetActive(false);
         PauseController.Instance.IsPaused = false;
+        IsMonologueActive = false;
     }
 
     private void Update()

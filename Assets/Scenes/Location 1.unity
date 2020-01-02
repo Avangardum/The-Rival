@@ -258,7 +258,7 @@ Transform:
   - {fileID: 1445407806}
   - {fileID: 94543057}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &253465548
 GameObject:
@@ -426,7 +426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &323669821
 GameObject:
@@ -442,8 +442,9 @@ GameObject:
   - component: {fileID: 323669824}
   - component: {fileID: 323669823}
   - component: {fileID: 323669822}
+  - component: {fileID: 323669827}
   m_Layer: 0
-  m_Name: Global Controllers
+  m_Name: Controllers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,8 +520,35 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &323669827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323669821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ff9a1bcc241ea4e978752fedbd9684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _introMonologue:
+  - "\u041D\u0430\u043A\u043E\u043D\u0435\u0446 - \u0442\u043E \u044F \u043D\u0430\u0448\u0451\u043B
+    \u0442\u0435\u0431\u044F"
+  - "\u0422\u0435\u043F\u0435\u0440\u044C \u044F \u0442\u0435\u0431\u044F \u0443\u0431\u044C\u044E"
+  _phase1EndMonologue:
+  - "\u041F\u0440\u043E\u043A\u043B\u044F\u0442\u044C\u0435! \u042F \u043D\u0430\u043D\u043E\u0448\u0443
+    \u0443\u0440\u043E\u043D \u0441\u0430\u043C \u0441\u0435\u0431\u0435"
+  - "\u042F \u0441\u043C\u043E\u0442\u0440\u044E, \u0442\u044B \u043B\u043E\u0432\u043A\u043E
+    \u0443\u043E\u0432\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0448\u044C\u0441\u044F"
+  - "\u0410 \u0441\u043C\u043E\u0436\u0435\u0448\u044C \u043B\u0438 \u0442\u044B \u043E\u0442
+    \u044D\u0442\u043E\u0433\u043E \u0443\u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F?"
+  _endMonologue:
+  - "\u041D\u0435\u0443\u0436\u0435\u043B\u0438 \u044F \u0442\u0430\u043A \u043F\u0440\u043E\u0441\u0442\u043E
+    \u0443\u043C\u0440\u0443?"
+  _nextScene: Location 2
 --- !u!1 &449574652
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +793,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &779528193
 GameObject:
@@ -1031,7 +1059,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1092661896
 GameObject:
@@ -1283,7 +1311,7 @@ RectTransform:
   - {fileID: 1868028473}
   - {fileID: 449574653}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1474,60 +1502,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1613804624
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1613804626}
-  - component: {fileID: 1613804625}
-  m_Layer: 0
-  m_Name: LocalControllers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1613804625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613804624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61ff9a1bcc241ea4e978752fedbd9684, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _introMonologue:
-  - "\u041D\u0430\u043A\u043E\u043D\u0435\u0446 - \u0442\u043E \u044F \u043D\u0430\u0448\u0451\u043B
-    \u0442\u0435\u0431\u044F"
-  - "\u0422\u0435\u043F\u0435\u0440\u044C \u044F \u0442\u0435\u0431\u044F \u0443\u0431\u044C\u044E"
-  _phase1EndMonologue:
-  - "\u041F\u0440\u043E\u043A\u043B\u044F\u0442\u044C\u0435! \u042F \u043D\u0430\u043D\u043E\u0448\u0443
-    \u0443\u0440\u043E\u043D \u0441\u0430\u043C \u0441\u0435\u0431\u0435"
-  - "\u042F \u0441\u043C\u043E\u0442\u0440\u044E, \u0442\u044B \u043B\u043E\u0432\u043A\u043E
-    \u0443\u043E\u0432\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0448\u044C\u0441\u044F"
-  - "\u0410 \u0441\u043C\u043E\u0436\u0435\u0448\u044C \u043B\u0438 \u0442\u044B \u043E\u0442
-    \u044D\u0442\u043E\u0433\u043E \u0443\u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F?"
---- !u!4 &1613804626
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613804624}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.9, y: 4.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1866551235
 GameObject:
   m_ObjectHideFlags: 0

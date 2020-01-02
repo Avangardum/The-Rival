@@ -6,6 +6,8 @@ public class Location1Controller : SingletonMonoBehaviour<Location1Controller>
 {
     [SerializeField] private string[] _introMonologue;
     [SerializeField] private string[] _phase1EndMonologue;
+    [SerializeField] private string[] _endMonologue;
+    [SerializeField] private string _nextScene;
 
     private GameObject _player;
 
@@ -14,6 +16,7 @@ public class Location1Controller : SingletonMonoBehaviour<Location1Controller>
         BacktrackingController.Instance.ActiveCheckPoint = new Checkpoint(0, RestartFight1);
         MonologueController.Instance.ShowMonologue(_introMonologue);
         RivalStrategyController.Instance.Strategy = new RivalStrategy1_1_1();
+        GameObject.FindGameObjectWithTag("Rival").GetComponent<HealthController>().Death += EndLocation1;
     }
 
     public void ShowPhase1EndMonologue()
@@ -22,4 +25,16 @@ public class Location1Controller : SingletonMonoBehaviour<Location1Controller>
     }
 
     public void RestartFight1() => SceneLoader.Instance.ReloadScene();
+
+    public void EndLocation1()
+    {
+        StartCoroutine(EndLocation1Coroutine());
+    }
+
+    private IEnumerator EndLocation1Coroutine()
+    {
+        MonologueController.Instance.ShowMonologue(_endMonologue);
+        yield return new WaitWhile(() => MonologueController.Instance.IsMonologueActive);
+        SceneLoader.Instance.LoadScene(_nextScene);
+    }
 }
