@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathScreenController : MonoBehaviour
 {
@@ -11,6 +10,12 @@ public class DeathScreenController : MonoBehaviour
     private void Awake()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>().Death += Activate;
+        SceneManager.sceneUnloaded += Unsubscribe;
         Deactivate();
+    }
+
+    private void Unsubscribe<Scene>(Scene scene)
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>().Death -= Activate;
     }
 }

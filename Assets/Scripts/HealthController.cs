@@ -6,6 +6,7 @@ public class HealthController : MonoBehaviour
     public int Health => _health;
     public int MaxHealth => _maxHealth;
     public float HealthPercentage => Health / MaxHealth;
+    public bool IsDead => Health <= 0;
 
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
