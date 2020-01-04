@@ -1769,12 +1769,12 @@ PrefabInstance:
     - target: {fileID: 7082882256497181879, guid: aa392cce25bcaf345b5e09e8a8baa18d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.11
+      value: -0.72
       objectReference: {fileID: 0}
     - target: {fileID: 7082882256497181879, guid: aa392cce25bcaf345b5e09e8a8baa18d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.55
+      value: -5.22
       objectReference: {fileID: 0}
     - target: {fileID: 7082882256497181879, guid: aa392cce25bcaf345b5e09e8a8baa18d,
         type: 3}
@@ -1954,6 +1954,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8047465792bd48747be5de124145f36f, type: 3}
+--- !u!1 &1026760301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2400230553263934808, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+    type: 3}
+  m_PrefabInstance: {fileID: 933949745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1026760309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026760301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b2477f7cdc7164fb58919139479777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordPrefab: {fileID: 88778135781364459, guid: 6e53d9cc475d4a744ac78bb8b6a17ec9,
+    type: 3}
+  _swingAngle: 90
+  _swingTime: 1
+  _swordDistance: 1
 --- !u!1 &1054808836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3845293941964679206, guid: abae22d8e0d213a4bbdd48e3ff980fd8,
