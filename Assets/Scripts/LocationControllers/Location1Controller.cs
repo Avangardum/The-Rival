@@ -7,6 +7,7 @@ public class Location1Controller : SingletonMonoBehaviour<Location1Controller>
     [SerializeField] private string[] _introMonologue;
     [SerializeField] private string[] _phase1EndMonologue;
     [SerializeField] private string[] _endMonologue;
+    [SerializeField] private NewSkillNotification swordNotification;
     [SerializeField] private string _nextScene;
 
     private GameObject _player;
@@ -35,6 +36,8 @@ public class Location1Controller : SingletonMonoBehaviour<Location1Controller>
     {
         MonologueController.Instance.ShowMonologue(_endMonologue);
         yield return new WaitWhile(() => MonologueController.Instance.IsMonologueActive);
+        NewSkillNotificationController.Instance.ShowNotification(swordNotification);
+        yield return new WaitWhile(() => NewSkillNotificationController.Instance.IsNotificationActive);
         SceneLoader.Instance.LoadScene(_nextScene);
     }
 }
