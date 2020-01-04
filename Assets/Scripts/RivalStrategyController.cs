@@ -10,16 +10,27 @@ public class RivalStrategyController : SingletonMonoBehaviour<RivalStrategyContr
         set
         {
             _strategy = value;
-            _strategy.Initialize(this);
+            _strategy?.Initialize(this);
         }
     }
 
     private IRivalStrategy _strategy;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        GetComponent<HealthController>().Death += ClearStrategy;
+    }
 
     private void Update()
     {
         if (PauseController.Instance.IsPaused)
             return;
         Strategy?.FrameAction();
+    }
+
+    private void ClearStrategy()
+    {
+        Strategy = null;
     }
 }
