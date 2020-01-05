@@ -1056,8 +1056,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hiddenArea1: {fileID: 870961928}
   _veryBigBullet: {fileID: 1054808836}
-  _introMonologue: []
-  _battleBeginningMonologue: []
+  _introMonologue:
+  - "\u0415\u0440\u0436\u0430\u043D, \u0432\u0441\u0442\u0430\u0432\u0430\u0439, \u043D\u0430
+    \u0440\u0430\u0431\u043E\u0442\u0443 \u043F\u043E\u0440\u0430"
+  _battleBeginningMonologue:
+  - "\u041D\u0435\u0444\u0438\u0433\u043E\u0432\u043E \u0442\u044B \u0443\u0432\u0435\u0440\u043D\u0443\u043B\u0441\u044F"
   _battleEndMonologue: []
   _outerDoorController: {fileID: 952212247}
 --- !u!4 &589683495 stripped
