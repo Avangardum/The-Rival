@@ -19,8 +19,11 @@ public static class Extensions
     }
 
     public static void LookFrom2D(this Transform transform, Transform target) => LookFrom2D(transform, target.position);
-
-    public static Vector3 RotateAroundOrigin(this Vector2 originalVector, float angleDeg)
+    
+    /// <summary>
+    /// Возвращает копию данного вектора, повёрнутую на angleDeg относительно начала
+    /// </summary>
+    public static Vector3 RotatedAroundOrigin(this Vector2 originalVector, float angleDeg)
     {
         float angleRad = angleDeg * Mathf.Deg2Rad;
         float x1 = originalVector.x;
@@ -28,5 +31,13 @@ public static class Extensions
         float x2 = Mathf.Cos(angleRad) * x1 - Mathf.Sin(angleRad) * y1;
         float y2 = Mathf.Sin(angleRad) * x1 + Mathf.Cos(angleRad) * y1;
         return new Vector2(x2, y2);
+    }
+
+    /// <summary>
+    /// Поворачивает данный вектор на angleDeg относительно начала
+    /// </summary>
+    public static void RotateAroundOrigin(this ref Vector2 originalVector, float angleDeg)
+    {
+        originalVector = originalVector.RotatedAroundOrigin(angleDeg);
     }
 }

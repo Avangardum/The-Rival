@@ -1339,7 +1339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &870961929
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,6 +1464,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &896958146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6095586986864572308, guid: 8da416ee753d4e340b406ebba8cd103b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1219307450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &896958155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896958146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e77a5150cc35674084e5bd8120cc6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 3845293941964679206, guid: abae22d8e0d213a4bbdd48e3ff980fd8,
+    type: 3}
+  _linkPrefab: {fileID: 0}
+  _initialRadius: 0.5
+  _speed: 1
+  _bulletsCount: 30
+  _gapSize: 3
 --- !u!1001 &900871949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1769,12 +1794,12 @@ PrefabInstance:
     - target: {fileID: 7082882256497181879, guid: aa392cce25bcaf345b5e09e8a8baa18d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.72
+      value: 10.19
       objectReference: {fileID: 0}
     - target: {fileID: 7082882256497181879, guid: aa392cce25bcaf345b5e09e8a8baa18d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.22
+      value: -1.43
       objectReference: {fileID: 0}
     - target: {fileID: 7082882256497181879, guid: aa392cce25bcaf345b5e09e8a8baa18d,
         type: 3}
@@ -1977,6 +2002,8 @@ MonoBehaviour:
   _swingAngle: 90
   _swingTime: 1
   _swordDistance: 1
+  _cooldown: 0
+  _damage: 0
 --- !u!1 &1054808836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3845293941964679206, guid: abae22d8e0d213a4bbdd48e3ff980fd8,
