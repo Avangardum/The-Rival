@@ -6,7 +6,9 @@ public class Location2Controller : MonoBehaviour
 {
     [SerializeField] GameObject _hiddenArea1;
     [SerializeField] GameObject _veryBigBullet;
-    [SerializeField] string[] _firstMonologue;
+    [SerializeField] string[] _introMonologue;
+    [SerializeField] string[] _battleBeginningMonologue;
+    [SerializeField] string[] _battleEndMonologue;
     [SerializeField] DoorController _outerDoorController;
 
     private GameObject _player;
@@ -30,6 +32,7 @@ public class Location2Controller : MonoBehaviour
         if (_player.GetComponent<HealthController>().IsDead)
             return;
         //TODO подвинуть камеру
-        MonologueController.Instance.ShowMonologue(_firstMonologue);
+        MonologueController.Instance.ShowMonologue(_introMonologue);
+        RivalStrategyController.Instance.Strategy = new RivalStrategy2_1_1();
     }
 }

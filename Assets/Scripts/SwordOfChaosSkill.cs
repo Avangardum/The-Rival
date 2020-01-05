@@ -58,7 +58,7 @@ public class SwordOfChaosSkill : MonoBehaviour
         Vector2 mousePosition = StaticFunctions.GetWorldMousePositions();
         Vector2 directionFromPlayerToMouse = mousePosition - (Vector2)transform.position;
         directionFromPlayerToMouse = directionFromPlayerToMouse.normalized * _swordDistance;
-        Vector2 directionFromPlayerToSword = directionFromPlayerToMouse.RotateAroundOrigin(_swingAngle / 2);
+        Vector2 directionFromPlayerToSword = directionFromPlayerToMouse.TurnedAroundOrigin(_swingAngle / 2);
         _sword = Instantiate(_swordPrefab, (Vector2)transform.position + directionFromPlayerToSword, Quaternion.identity, transform);
         _sword.transform.LookFrom2D(transform);
         _commitedRotation = 0f;

@@ -17,6 +17,6 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GetComponent<CircleCollider2D>().isTrigger = false;
+        GetComponent<Collider2D>().isTrigger = false;
     }
 }

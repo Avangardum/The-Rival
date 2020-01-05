@@ -14,6 +14,7 @@ public class RivalMovement : MonoBehaviour
     {
         _rigidbody2d = GetComponent<Rigidbody2D>();
     }
+
     private void Update()
     {
         if(_currentVelocity.magnitude > _maxSpeed)
