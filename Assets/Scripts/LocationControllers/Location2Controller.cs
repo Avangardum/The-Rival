@@ -19,6 +19,7 @@ public class Location2Controller : MonoBehaviour
         BacktrackingController.Instance.ActiveCheckPoint = new Checkpoint(2 ,SceneLoader.Instance.ReloadScene);
         _outerDoorController.DoorOpened += OnOuterDoorOpen;
         _veryBigBullet.GetComponent<BulletController>().Hit += OnVeryBigBulletEscape;
+        MonologueController.Instance.ShowMonologue(_introMonologue);
     }
 
     private void OnOuterDoorOpen()
@@ -32,7 +33,7 @@ public class Location2Controller : MonoBehaviour
         if (_player.GetComponent<HealthController>().IsDead)
             return;
         //TODO подвинуть камеру
-        MonologueController.Instance.ShowMonologue(_introMonologue);
+        MonologueController.Instance.ShowMonologue(_battleBeginningMonologue);
         RivalStrategyController.Instance.Strategy = new RivalStrategy2_1_1();
     }
 }
