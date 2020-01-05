@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class BacktrackingController : SingletonMonoBehaviour<BacktrackingController>
 {
+    [SerializeField] private NewSkillNotification _notification;
+
+    private static bool _isNotificationShown = false;
+
     public Checkpoint ActiveCheckPoint
     {
         get => _activeCheckpoint;
@@ -19,6 +23,12 @@ public class BacktrackingController : SingletonMonoBehaviour<BacktrackingControl
 
     private Checkpoint _activeCheckpoint;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>().Death += ShowNotification;
+    }
+
     private void Update()
     {
         if (Input.GetAxisRaw("Backtrack") == 1)
@@ -26,4 +36,12 @@ public class BacktrackingController : SingletonMonoBehaviour<BacktrackingControl
     }
 
     private void Backtrack() => ActiveCheckPoint.BacktrackingAction.Invoke();
+
+    private void ShowNotification()
+    {
+        if (_isNotificationShown)
+            return;
+        NewSkillNotificationController.Instance.ShowNotification(_notification);
+        _isNotificationShown = true;
+    }
 }
