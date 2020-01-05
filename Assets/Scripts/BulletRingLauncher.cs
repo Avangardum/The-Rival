@@ -11,19 +11,17 @@ public class BulletRingLauncher : MonoBehaviour
     [SerializeField] private int _bulletsCount;
     [SerializeField] private int _gapSize;
 
-    private void Start()
-    {
-        LaunchRing(Vector2.right);
-    }
-
     public void LaunchRing(Vector2 gapDirection)
     {
+        #region Local Variables
+        GameObject lastSpawnedBullet = null;
         float step = 360f / (_bulletsCount + _gapSize);//угловое расстояние между соседними пулями
         Vector2 radiusVector = gapDirection.normalized * _initialRadius;//вектор, по которому строится кольцо
         float commitedRotation = 0;//вращение, совершённое радиус-вектором
-        float stopAngle;//угол, при достижении которого останавливается спав пуль
+        float stopAngle;//угол, при достижении которого останавливается спавн пуль
         int missingBulletsInTheBegginning;
         int missingBulletsInTheEnd;
+        #endregion
 
         #region Local Methods
         void RotateRadiusVector(float angle)
@@ -38,6 +36,14 @@ public class BulletRingLauncher : MonoBehaviour
                 return;
             GameObject bullet = Instantiate(_bulletPrefab, (Vector2)transform.position + radiusVector, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = radiusVector.normalized * _speed;
+            if(lastSpawnedBullet != null)
+            {
+                GameObject link = Instantiate(_linkPrefab);
+                BulletLinkController linkController = link.GetComponent<BulletLinkController>();
+                linkController.Bullet1 = lastSpawnedBullet;
+                linkController.Bullet2 = bullet;
+            }
+            lastSpawnedBullet = bullet;
         }
         #endregion
 

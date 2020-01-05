@@ -23,7 +23,7 @@ public static class Extensions
     /// <summary>
     /// Возвращает копию данного вектора, повёрнутую на angleDeg относительно начала
     /// </summary>
-    public static Vector3 RotatedAroundOrigin(this Vector2 originalVector, float angleDeg)
+    public static Vector3 TurnedAroundOrigin(this Vector2 originalVector, float angleDeg)
     {
         float angleRad = angleDeg * Mathf.Deg2Rad;
         float x1 = originalVector.x;
@@ -38,6 +38,6 @@ public static class Extensions
     /// </summary>
     public static void RotateAroundOrigin(this ref Vector2 originalVector, float angleDeg)
     {
-        originalVector = originalVector.RotatedAroundOrigin(angleDeg);
+        originalVector = originalVector.TurnedAroundOrigin(angleDeg);
     }
 }
