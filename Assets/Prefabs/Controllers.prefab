@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _monologueWindow: {fileID: 0}
+  _minShowTime: 0.5
 --- !u!114 &1445381059689723678
 MonoBehaviour:
   m_ObjectHideFlags: 0
