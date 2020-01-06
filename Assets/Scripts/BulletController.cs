@@ -3,12 +3,20 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    public GameObject Origin;
+
     [SerializeField] private int _damage;
+
+    private bool _hasLeftOrigin = false;
 
     public event Action Hit;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!_hasLeftOrigin && collision.gameObject == Origin)
+            return;
+        if (collision.CompareTag("Sword"))
+            return;
         HealthController otherHealthController = collision.gameObject.GetComponent<HealthController>();
         otherHealthController?.ChangeHealth(-_damage);
         Destroy(gameObject);
@@ -17,6 +25,6 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GetComponent<Collider2D>().isTrigger = false;
+        _hasLeftOrigin = true;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class MonologueController : SingletonMonoBehaviour<MonologueController>
 
     private Text _monologueWindowText;
     private bool _shouldGonext;
+
+    public event Action MonologueEnd;
 
     protected override void Awake()
     {
@@ -38,6 +41,7 @@ public class MonologueController : SingletonMonoBehaviour<MonologueController>
         _monologueWindow.SetActive(false);
         PauseController.Instance.IsPaused = false;
         IsMonologueActive = false;
+        MonologueEnd?.Invoke();
     }
 
     private void Update()

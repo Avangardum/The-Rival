@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Location2Controller : MonoBehaviour
 {
@@ -19,6 +17,8 @@ public class Location2Controller : MonoBehaviour
         BacktrackingController.Instance.ActiveCheckPoint = new Checkpoint(2 ,SceneLoader.Instance.ReloadScene);
         _outerDoorController.DoorOpened += OnOuterDoorOpen;
         _veryBigBullet.GetComponent<BulletController>().Hit += OnVeryBigBulletEscape;
+        MonologueController.Instance.ShowMonologue(_introMonologue);
+        GameObject.FindGameObjectWithTag("Rival").GetComponent<HealthController>().Death += End;
     }
 
     private void OnOuterDoorOpen()
@@ -32,7 +32,18 @@ public class Location2Controller : MonoBehaviour
         if (_player.GetComponent<HealthController>().IsDead)
             return;
         //TODO подвинуть камеру
-        MonologueController.Instance.ShowMonologue(_introMonologue);
+        MonologueController.Instance.ShowMonologue(_battleBeginningMonologue);
         RivalStrategyController.Instance.Strategy = new RivalStrategy2_1_1();
+    }
+
+    public void End()
+    {
+        MonologueController.Instance.ShowMonologue(_battleEndMonologue);
+        MonologueController.Instance.MonologueEnd += NextScene;
+    }
+
+    private void NextScene()
+    {
+        SceneLoader.Instance.LoadScene("Location 3");
     }
 }
