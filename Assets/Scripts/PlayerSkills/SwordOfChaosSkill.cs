@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SwordOfChaosSkill : MonoBehaviour
 {
+    public bool IsEnabled;
+
     [SerializeField] private GameObject _swordPrefab;
     [SerializeField] private float _swingAngle;
     [SerializeField] private float _swingTime;
@@ -14,12 +16,6 @@ public class SwordOfChaosSkill : MonoBehaviour
     private GameObject _sword;
     private float _commitedRotation;
     private float _currentCooldown;
-
-    private void Update()
-    {
-        if (Input.GetAxisRaw("Fire1") == 1 && _sword == null && _currentCooldown == 0f)
-            StartSwinging();
-    }
 
     private void FixedUpdate()
     {
@@ -53,8 +49,10 @@ public class SwordOfChaosSkill : MonoBehaviour
         Hit(collision.gameObject);
     }
 
-    private void StartSwinging()
+    public void StartSwinging()
     {
+        if (_sword != null || _currentCooldown != 0f || !IsEnabled)
+            return;
         Vector2 mousePosition = StaticFunctions.GetWorldMousePositions();
         Vector2 directionFromPlayerToMouse = mousePosition - (Vector2)transform.position;
         directionFromPlayerToMouse = directionFromPlayerToMouse.normalized * _swordDistance;

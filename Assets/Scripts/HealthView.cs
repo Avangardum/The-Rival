@@ -8,9 +8,18 @@ public class HealthView : MonoBehaviour
 
     private void Awake()
     {
-        HealthController rivalHealthController = GameObject.FindGameObjectWithTag("Rival").GetComponent<HealthController>();
-        HealthController playerHealthController = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
-        rivalHealthController.HealthChanged += SetRivalHpBarValue;
+        GameObject rival = GameObject.FindGameObjectWithTag("Rival");
+        if (rival != null)
+        {
+            HealthController rivalHealthController = rival.GetComponent<HealthController>();
+            rivalHealthController.HealthChanged += SetRivalHpBarValue;
+        }
+        else
+        {
+            SetRivalHpBarValue(0, 1);
+        }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        HealthController playerHealthController = player.GetComponent<HealthController>();
         playerHealthController.HealthChanged += SetPlayerHpBarValue;
     }
 
