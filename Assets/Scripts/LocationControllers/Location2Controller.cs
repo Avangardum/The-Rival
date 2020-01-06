@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Location2Controller : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class Location2Controller : MonoBehaviour
     [SerializeField] string[] _introMonologue;
     [SerializeField] string[] _battleBeginningMonologue;
     [SerializeField] string[] _battleEndMonologue;
+    [SerializeField] NewSkillNotification _insightNotification;
+    [SerializeField] NewSkillNotification _fakeBulletsNotification;
     [SerializeField] DoorController _outerDoorController;
 
     private GameObject _player;
@@ -31,19 +34,23 @@ public class Location2Controller : MonoBehaviour
     {
         if (_player.GetComponent<HealthController>().IsDead)
             return;
-        //TODO подвинуть камеру
         MonologueController.Instance.ShowMonologue(_battleBeginningMonologue);
         RivalStrategyController.Instance.Strategy = new RivalStrategy2_1_1();
     }
 
     public void End()
     {
-        MonologueController.Instance.ShowMonologue(_battleEndMonologue);
-        MonologueController.Instance.MonologueEnd += NextScene;
+        StartCoroutine(EndCoroutine());
     }
 
-    private void NextScene()
+    private IEnumerator EndCoroutine()
     {
+        MonologueController.Instance.ShowMonologue(_battleEndMonologue);
+        yield return new WaitWhile(() => MonologueController.Instance.IsMonologueActive);
+        NewSkillNotificationController.Instance.ShowNotification(_insightNotification);
+        yield return new WaitWhile(() => NewSkillNotificationController.Instance.IsNotificationActive);
+        NewSkillNotificationController.Instance.ShowNotification(_fakeBulletsNotification);
+        yield return new WaitWhile(() => NewSkillNotificationController.Instance.IsNotificationActive);
         SceneLoader.Instance.LoadScene("Location 3");
     }
 }

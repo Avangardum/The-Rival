@@ -7,6 +7,7 @@ public class NewSkillNotificationController : SingletonMonoBehaviour<NewSkillNot
 
     [SerializeField] private Text _title;
     [SerializeField] private Text _body;
+    [SerializeField] private float _minShowTime;
 
     private float _timePassedFromLastShow;
 
@@ -18,6 +19,7 @@ public class NewSkillNotificationController : SingletonMonoBehaviour<NewSkillNot
 
     public void ShowNotification(string title, string body)
     {
+        PauseController.Instance.Pause();
         gameObject.SetActive(true);
         _title.text = title;
         _body.text = body;
@@ -27,6 +29,7 @@ public class NewSkillNotificationController : SingletonMonoBehaviour<NewSkillNot
 
     public void HideNotification()
     {
+        PauseController.Instance.Unpause();
         gameObject.SetActive(false);
         IsNotificationActive = false;
     }
@@ -35,8 +38,10 @@ public class NewSkillNotificationController : SingletonMonoBehaviour<NewSkillNot
 
     private void Update()
     {
-        _timePassedFromLastShow += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && _timePassedFromLastShow >= 1)
+        _timePassedFromLastShow += Time.unscaledDeltaTime;
+        if (Input.GetMouseButtonDown(0) && _timePassedFromLastShow >= _minShowTime)
             HideNotification();
+        if(IsNotificationActive)
+            _timePassedFromLastShow += Time.unscaledDeltaTime;
     }
 }
