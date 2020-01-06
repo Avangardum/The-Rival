@@ -12,9 +12,12 @@ GameObject:
   - component: {fileID: 8060860965458215480}
   - component: {fileID: 130036675}
   - component: {fileID: 130036679}
-  - component: {fileID: 130036674}
   - component: {fileID: 130036678}
   - component: {fileID: 232758720921984872}
+  - component: {fileID: 779445416246019101}
+  - component: {fileID: 130036674}
+  - component: {fileID: -1168520861312240371}
+  - component: {fileID: 130909435676846281}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -121,19 +124,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &130036674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2400230553263934808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b939b0a617027448bade0a9979cd66c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxSpeed: 5
 --- !u!114 &130036678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5025e8526b1f79547bd2b1067673da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsInvincible: 0
   _health: 50
   _maxHealth: 50
 --- !u!114 &232758720921984872
@@ -168,3 +159,63 @@ MonoBehaviour:
       \u042D\u0442\u0443 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
       \u043C\u043E\u0436\u043D\u043E \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
       \u0434\u0430\u0436\u0435 \u043F\u043E\u0441\u043B\u0435 \u0441\u043C\u0435\u0440\u0442\u0438!"
+--- !u!114 &779445416246019101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400230553263934808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46bfb00b9060e245a9025b94bc4b77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &130036674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400230553263934808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b939b0a617027448bade0a9979cd66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnabled: 1
+  _maxSpeed: 5
+--- !u!114 &-1168520861312240371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400230553263934808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b2477f7cdc7164fb58919139479777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnabled: 0
+  _swordPrefab: {fileID: 0}
+  _swingAngle: 0
+  _swingTime: 0
+  _swordDistance: 0
+  _cooldown: 0
+  _damage: 0
+--- !u!114 &130909435676846281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400230553263934808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1703b524f30883a4ebe094f4dabd16c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnabled: 0
+  _distance: 0
+  _time: 0

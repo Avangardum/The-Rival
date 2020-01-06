@@ -1700,6 +1700,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1168520861312240371, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+        type: 3}
+      propertyPath: _swingAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -1168520861312240371, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+        type: 3}
+      propertyPath: _swingTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1168520861312240371, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+        type: 3}
+      propertyPath: _swordDistance
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -1168520861312240371, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+        type: 3}
+      propertyPath: _cooldown
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -1168520861312240371, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+        type: 3}
+      propertyPath: _damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -1168520861312240371, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+        type: 3}
+      propertyPath: _swordPrefab
+      value: 
+      objectReference: {fileID: 88778135781364459, guid: 6e53d9cc475d4a744ac78bb8b6a17ec9,
+        type: 3}
     - target: {fileID: 2400230553263934808, guid: aa392cce25bcaf345b5e09e8a8baa18d,
         type: 3}
       propertyPath: m_Name
@@ -1901,31 +1932,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8047465792bd48747be5de124145f36f, type: 3}
---- !u!1 &1026760301 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2400230553263934808, guid: aa392cce25bcaf345b5e09e8a8baa18d,
-    type: 3}
-  m_PrefabInstance: {fileID: 933949745}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1026760309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026760301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1b2477f7cdc7164fb58919139479777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _swordPrefab: {fileID: 88778135781364459, guid: 6e53d9cc475d4a744ac78bb8b6a17ec9,
-    type: 3}
-  _swingAngle: 90
-  _swingTime: 0.3
-  _swordDistance: 1.01
-  _cooldown: 0.15
-  _damage: 10
 --- !u!1 &1054808836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3845293941964679206, guid: abae22d8e0d213a4bbdd48e3ff980fd8,

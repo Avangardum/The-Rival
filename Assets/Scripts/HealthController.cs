@@ -7,6 +7,7 @@ public class HealthController : MonoBehaviour
     public int MaxHealth => _maxHealth;
     public float HealthPercentage => Health / MaxHealth;
     public bool IsDead => Health <= 0;
+    public bool IsInvincible;
 
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
@@ -16,9 +17,33 @@ public class HealthController : MonoBehaviour
     public event HealthChangedDelegate HealthChanged;
     public event Action Death;
 
+    public void Damage(int value)
+    {
+        if (value <= 0 || IsInvincible)
+            return;
+        ChangeHealth(-value);
+    }
+
+    public void Heal(int value)
+    {
+        if (value <= 0)
+            return;
+        ChangeHealth(value);
+    }
+
     public void ChangeHealth(int value)
     {
         _health += value;
+        OnValidate();
+    }
+
+    private void Start()
+    {
+        HealthChanged?.Invoke(_health, MaxHealth);
+    }
+
+    private void OnValidate()
+    {
         if (_health > MaxHealth)
             _health = MaxHealth;
         if (_health <= 0)
@@ -26,10 +51,5 @@ public class HealthController : MonoBehaviour
         HealthChanged?.Invoke(_health, MaxHealth);
         if (_health == 0)
             Death?.Invoke();
-    }
-
-    private void Start()
-    {
-        HealthChanged?.Invoke(_health, MaxHealth);
     }
 }
