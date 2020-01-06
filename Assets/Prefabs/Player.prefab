@@ -198,12 +198,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsEnabled: 0
-  _swordPrefab: {fileID: 0}
-  _swingAngle: 0
-  _swingTime: 0
-  _swordDistance: 0
-  _cooldown: 0
-  _damage: 0
+  _swordPrefab: {fileID: 88778135781364459, guid: 6e53d9cc475d4a744ac78bb8b6a17ec9,
+    type: 3}
+  _swingAngle: 90
+  _swingTime: 0.3
+  _swordDistance: 1.01
+  _cooldown: 0.15
+  _damage: 10
 --- !u!114 &130909435676846281
 MonoBehaviour:
   m_ObjectHideFlags: 0
