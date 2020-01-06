@@ -36,12 +36,15 @@ public class BulletRingLauncher : MonoBehaviour
                 return;
             GameObject bullet = Instantiate(_bulletPrefab, (Vector2)transform.position + radiusVector, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = radiusVector.normalized * _speed;
-            if(lastSpawnedBullet != null)
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+            bulletController.Origin = gameObject;
+            if (lastSpawnedBullet != null)
             {
                 GameObject link = Instantiate(_linkPrefab);
                 BulletLinkController linkController = link.GetComponent<BulletLinkController>();
                 linkController.Bullet1 = lastSpawnedBullet;
                 linkController.Bullet2 = bullet;
+                link.GetComponent<BulletController>().Origin = gameObject;
             }
             lastSpawnedBullet = bullet;
         }
@@ -67,5 +70,7 @@ public class BulletRingLauncher : MonoBehaviour
             RotateRadiusVector(step);
             SpawnBullet();
         }
+
+        //Debug.Break();
     }
 }
