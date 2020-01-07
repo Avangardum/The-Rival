@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b2477f7cdc7164fb58919139479777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsEnabled: 0
+  IsEnabled: 1
   _swordPrefab: {fileID: 88778135781364459, guid: 6e53d9cc475d4a744ac78bb8b6a17ec9,
     type: 3}
   _swingAngle: 90

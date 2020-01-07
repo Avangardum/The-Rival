@@ -7,21 +7,7 @@ public class BacktrackingController : SingletonMonoBehaviour<BacktrackingControl
 
     private static bool _isNotificationShown = false;
 
-    public Checkpoint ActiveCheckPoint
-    {
-        get => _activeCheckpoint;
-        set
-        {
-            if (value.Index < _activeCheckpoint.Index)
-                throw new Exception("Произведена попытка активации чекпоинта, чей индекс меньше текущего активного чекпоинта");
-            else
-            {
-                _activeCheckpoint = value;
-            }
-        }
-    }
-
-    private Checkpoint _activeCheckpoint;
+    public Checkpoint ActiveCheckpoint { get; set; }
 
     protected override void Awake()
     {
@@ -35,7 +21,7 @@ public class BacktrackingController : SingletonMonoBehaviour<BacktrackingControl
             Backtrack();
     }
 
-    private void Backtrack() => ActiveCheckPoint.BacktrackingAction.Invoke();
+    private void Backtrack() => ActiveCheckpoint.BacktrackingAction.Invoke();
 
     private void ShowNotification()
     {

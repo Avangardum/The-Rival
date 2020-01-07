@@ -14,7 +14,7 @@ public class Location1Controller : SingletonMonoBehaviour<Location1Controller>
 
     private void Start()
     {
-        BacktrackingController.Instance.ActiveCheckPoint = new Checkpoint(0, RestartFight1);
+        BacktrackingController.Instance.ActiveCheckpoint = new Checkpoint(RestartFight1);
         MonologueController.Instance.ShowMonologue(_introMonologue);
         RivalStrategyController.Instance.Strategy = new RivalStrategy1_1_1();
         GameObject.FindGameObjectWithTag("Rival").GetComponent<HealthController>().Death += EndLocation1;

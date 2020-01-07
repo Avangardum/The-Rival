@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordOfChaosSkill : MonoBehaviour
+public class SwordOfChaosSkill : SingletonMonoBehaviour<SwordOfChaosSkill>
 {
     public bool IsEnabled;
 
@@ -41,7 +41,7 @@ public class SwordOfChaosSkill : MonoBehaviour
             _currentCooldown = 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnSwordTriggerEnter2D(Collider2D collision)
     {
         if (_hitObjects.Contains(collision.gameObject))
             return;

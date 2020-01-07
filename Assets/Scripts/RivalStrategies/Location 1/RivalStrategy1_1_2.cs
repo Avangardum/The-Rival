@@ -24,11 +24,11 @@ public class RivalStrategy1_1_2 : RivalStrategyTemplate1
 
     private void Shoot()
     {
-        _shootingController.Shoot(_bulletPrefab, _bulletSpeed, _player.transform);
-        _shootingController.Shoot(_bulletPrefab, _bulletSpeed, _player.transform, _angularDeviation);
-        _shootingController.Shoot(_bulletPrefab, _bulletSpeed, _player.transform, -_angularDeviation);
-        _shootingController.Shoot(_bulletPrefab, _bulletSpeed, _player.transform, 2 *_angularDeviation);
-        _shootingController.Shoot(_bulletPrefab, _bulletSpeed, _player.transform, -2 *_angularDeviation);
+        _shootingController.ShootAtTarget(_bulletPrefab, _bulletSpeed, _player.transform);
+        _shootingController.ShootAtTarget(_bulletPrefab, _bulletSpeed, _player.transform, _angularDeviation);
+        _shootingController.ShootAtTarget(_bulletPrefab, _bulletSpeed, _player.transform, -_angularDeviation);
+        _shootingController.ShootAtTarget(_bulletPrefab, _bulletSpeed, _player.transform, 2 *_angularDeviation);
+        _shootingController.ShootAtTarget(_bulletPrefab, _bulletSpeed, _player.transform, -2 *_angularDeviation);
         _currentShootingCooldown = _shootingCooldown;
         _healthController.ChangeHealth(-_selfDamagePerBullet * 5);
     }

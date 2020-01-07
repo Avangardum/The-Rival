@@ -17,7 +17,7 @@ public class Location2Controller : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        BacktrackingController.Instance.ActiveCheckPoint = new Checkpoint(2 ,SceneLoader.Instance.ReloadScene);
+        BacktrackingController.Instance.ActiveCheckpoint = new Checkpoint(SceneLoader.Instance.ReloadScene);
         _outerDoorController.DoorOpened += OnOuterDoorOpen;
         _veryBigBullet.GetComponent<BulletController>().Hit += OnVeryBigBulletEscape;
         MonologueController.Instance.ShowMonologue(_introMonologue);
