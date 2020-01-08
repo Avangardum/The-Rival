@@ -23,6 +23,17 @@ public class HealthController : MonoBehaviour
         }
     }
 
+    public bool IsIntangible
+    {
+        get
+        {
+            if (_dashSkill != null)
+                if (_dashSkill.IsDashing)
+                    return true;
+            return false;
+        }
+    }
+
     public delegate void HealthChangedDelegate(int currentHealth, int maxHealth);
 
     public event HealthChangedDelegate HealthChanged;
@@ -35,7 +46,7 @@ public class HealthController : MonoBehaviour
 
     public void Damage(int value)
     {
-        if (value <= 0 || _isInvincible)
+        if (value <= 0)
             return;
         ChangeHealth(-value);
     }
@@ -49,6 +60,10 @@ public class HealthController : MonoBehaviour
 
     public void ChangeHealth(int value)
     {
+        if (value < 0 && _isInvincible)
+            return;
+        if (value == 0)
+            return;
         _health += value;
         OnValidate();
     }

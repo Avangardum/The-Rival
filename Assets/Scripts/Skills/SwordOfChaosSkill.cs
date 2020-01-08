@@ -51,7 +51,7 @@ public class SwordOfChaosSkill : SingletonMonoBehaviour<SwordOfChaosSkill>
 
     public void StartSwinging()
     {
-        if (_sword != null || _currentCooldown != 0f || !IsEnabled)
+        if (_sword != null || _currentCooldown != 0f || !IsEnabled || PauseController.Instance.IsPaused)
             return;
         Vector2 mousePosition = StaticFunctions.GetWorldMousePositions();
         Vector2 directionFromPlayerToMouse = mousePosition - (Vector2)transform.position;

@@ -18,7 +18,7 @@ TagManager:
   - Characters
   - Bullets
   - Sword
-  - 
+  - Platforms
   - 
   - 
   - 
@@ -40,11 +40,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Chasms
+    uniqueID: 4008081223
+    locked: 0
   - name: Bullets
     uniqueID: 3047669275
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Characters
+    uniqueID: 2144675559
     locked: 0
   - name: Hidden Area
     uniqueID: 3376807177

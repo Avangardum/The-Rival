@@ -15,9 +15,11 @@ public class BulletController : MonoBehaviour
     {
         if (!_hasLeftOrigin && collision.gameObject == Origin)
             return;
-        if (collision.CompareTag("Sword"))
+        if (collision.gameObject.CompareTag("Sword"))
             return;
         HealthController otherHealthController = collision.gameObject.GetComponent<HealthController>();
+        if (otherHealthController.IsIntangible)
+            return;
         otherHealthController?.ChangeHealth(-_damage);
         Destroy(gameObject);
         Hit?.Invoke();
