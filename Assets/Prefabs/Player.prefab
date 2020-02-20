@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 130036674}
   - component: {fileID: -1168520861312240371}
   - component: {fileID: 130909435676846281}
+  - component: {fileID: 5876248466528809948}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2144675559
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6c6775b2311e056459cabba16c9098af, type: 3}
   m_Color: {r: 0, g: 0, b: 1, a: 1}
@@ -220,3 +221,22 @@ MonoBehaviour:
   _distance: 2
   _time: 0.2
   _cooldown: 0.5
+--- !u!114 &5876248466528809948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400230553263934808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2196603999388341b78c8535b0fcbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isEnabled: 0
+  _platformsLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  _groundCheckRadius: 0.2
+  _offsetWhenReturning: 1.5
+  _fallDamage: 10

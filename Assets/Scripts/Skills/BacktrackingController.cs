@@ -15,6 +15,12 @@ public class BacktrackingController : SingletonMonoBehaviour<BacktrackingControl
         GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>().Death += ShowNotification;
     }
 
+    private void Start()
+    {
+        if (ActiveCheckpoint.BacktrackingAction == null)
+            ActiveCheckpoint = new Checkpoint(SceneLoader.Instance.ReloadScene);
+    }
+
     private void Update()
     {
         if (Input.GetAxisRaw("Backtrack") == 1)

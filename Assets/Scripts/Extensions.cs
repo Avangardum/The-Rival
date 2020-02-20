@@ -40,4 +40,27 @@ public static class Extensions
     {
         originalVector = originalVector.TurnedAroundOrigin(angleDeg);
     }
+
+    public static void DecreaseCooldown(this ref float cooldown, DecreaseCooldownMode decreaseCooldownMode)
+    {
+        float deltaTime = 0;
+        switch(decreaseCooldownMode)
+        {
+            case DecreaseCooldownMode.Update:
+                deltaTime = Time.deltaTime;
+                break;
+            case DecreaseCooldownMode.FixedUpdate:
+                deltaTime = Time.fixedDeltaTime;
+                break;
+            case DecreaseCooldownMode.UpdateUnscaled:
+                deltaTime = Time.unscaledDeltaTime;
+                break;
+            case DecreaseCooldownMode.FixedUpdateUnscaled:
+                deltaTime = Time.fixedUnscaledDeltaTime;
+                break;
+        }
+        cooldown -= deltaTime;
+        if (cooldown < 0)
+            cooldown = 0;
+    }
 }
