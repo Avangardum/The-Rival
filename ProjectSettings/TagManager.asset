@@ -43,11 +43,11 @@ TagManager:
   - name: Chasms
     uniqueID: 4008081223
     locked: 0
-  - name: Bullets
-    uniqueID: 3047669275
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bullets
+    uniqueID: 3047669275
     locked: 0
   - name: Characters
     uniqueID: 2144675559
