@@ -28,4 +28,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _velocity = direction.normalized * _maxSpeed;
     }
+
+    public void Enable()
+    {
+        IsEnabled = true;
+    }
 }
