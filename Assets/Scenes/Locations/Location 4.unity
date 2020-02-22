@@ -323,6 +323,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8047465792bd48747be5de124145f36f, type: 3}
+--- !u!1 &28146032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28146034}
+  - component: {fileID: 28146033}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &28146033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28146032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4798d344f3a274f9971e7a4c39636b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 3845293941964679206, guid: abae22d8e0d213a4bbdd48e3ff980fd8,
+    type: 3}
+  _direction: {x: 0, y: -1}
+  _speed: 2
+  _lineLength: 30
+  _bulletsDistance: 0.5
+  _cooldown: 1.5
+--- !u!4 &28146034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28146032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02, y: 8.37, z: -4.3320312}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &247902040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1231,17 +1281,17 @@ PrefabInstance:
     - target: {fileID: 6095586986864572308, guid: 8da416ee753d4e340b406ebba8cd103b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6095586986864572319, guid: 8da416ee753d4e340b406ebba8cd103b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1833563
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6095586986864572319, guid: 8da416ee753d4e340b406ebba8cd103b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2789092
+      value: 19.14
       objectReference: {fileID: 0}
     - target: {fileID: 6095586986864572319, guid: 8da416ee753d4e340b406ebba8cd103b,
         type: 3}
