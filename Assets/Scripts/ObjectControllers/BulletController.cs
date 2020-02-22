@@ -18,7 +18,7 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.CompareTag("Sword"))
             return;
         HealthController otherHealthController = collision.gameObject.GetComponent<HealthController>();
-        if (otherHealthController.IsIntangible)
+        if (otherHealthController == null || otherHealthController.IsIntangible)
             return;
         otherHealthController?.ChangeHealth(-_damage);
         Destroy(gameObject);
