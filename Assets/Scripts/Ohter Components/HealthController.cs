@@ -8,20 +8,16 @@ public class HealthController : MonoBehaviour
     public float HealthPercentage => Health / MaxHealth;
     public bool IsDead => Health <= 0;
 
+    [SerializeField] private float _mercyInvincibilityTime;
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
 
     private DashSkill _dashSkill;
-    private bool _isInvincible
-    {
-        get
-        {
-            if (_dashSkill != null)
-                if (_dashSkill.IsDashing)
-                    return true;
-            return false;
-        }
-    }
+    private float _mercyInvincibilityTimeLeft = 0;
+
+    private bool _isInvincible => IsIntangible || _isMercyInvincibilityActive;
+
+    private bool _isMercyInvincibilityActive => _mercyInvincibilityTimeLeft > 0;
 
     public bool IsIntangible
     {
@@ -44,28 +40,38 @@ public class HealthController : MonoBehaviour
         _dashSkill = GetComponent<DashSkill>();
     }
 
+    private void Update()
+    {
+        _mercyInvincibilityTimeLeft -= Time.deltaTime;
+        if (_mercyInvincibilityTime < 0)
+            _mercyInvincibilityTime = 0;
+    }
+
     public void Damage(int value)
     {
-        if (value <= 0)
-            return;
-        ChangeHealth(-value);
+        if (value <= 0) return;
+        if (_isInvincible) return;
+        if (IsIntangible) return;
+        _health -= value;
+        if (_mercyInvincibilityTime > 0)
+            _mercyInvincibilityTimeLeft = _mercyInvincibilityTime;
+        OnValidate();
     }
 
     public void Heal(int value)
     {
         if (value <= 0)
             return;
-        ChangeHealth(value);
+        _health += value;
+        OnValidate();
     }
 
     public void ChangeHealth(int value)
     {
-        if (value < 0 && _isInvincible)
-            return;
-        if (value == 0)
-            return;
-        _health += value;
-        OnValidate();
+        if (value < 0)
+            Damage(-value);
+        if (value > 0)
+            Heal(value);
     }
 
     private void Start()
