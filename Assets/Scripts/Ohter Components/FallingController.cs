@@ -31,6 +31,8 @@ public class FallingController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_isEnabled)
+            return;
         var colliders = Physics2D.OverlapCircleAll(transform.position, _groundCheckRadius, _platformsLayerMask);
         if (colliders.Length > 0)
         {

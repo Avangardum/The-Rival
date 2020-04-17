@@ -1677,6 +1677,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 130909435676846281, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 130036674, guid: aa392cce25bcaf345b5e09e8a8baa18d, type: 3}
+      propertyPath: IsEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876248466528809948, guid: aa392cce25bcaf345b5e09e8a8baa18d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 130036678, guid: aa392cce25bcaf345b5e09e8a8baa18d, type: 3}
       propertyPath: _health
       value: 50
@@ -2114,6 +2128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rival
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095586986864572308, guid: 8da416ee753d4e340b406ebba8cd103b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6095586986864572319, guid: 8da416ee753d4e340b406ebba8cd103b,
         type: 3}
